@@ -1,0 +1,277 @@
+{
+  "entities": {
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized CMS administrator profile.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 200 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Global contact info, social media URLs, and hero copy.",
+      "type": "object",
+      "properties": {
+        "brandEn": { "type": "string", "maxLength": 120 },
+        "brandAr": { "type": "string", "maxLength": 120 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "email": { "type": "string", "maxLength": 160 },
+        "addressEn": { "type": "string", "maxLength": 300 },
+        "addressAr": { "type": "string", "maxLength": 300 },
+        "ceoEn": { "type": "string", "maxLength": 120 },
+        "ceoAr": { "type": "string", "maxLength": 120 },
+        "linkedinUrl": { "type": "string", "maxLength": 300 },
+        "instagramUrl": { "type": "string", "maxLength": 300 },
+        "facebookUrl": { "type": "string", "maxLength": 300 },
+        "twitterUrl": { "type": "string", "maxLength": 300 },
+        "whatsappNumber": { "type": "string", "maxLength": 40 },
+        "heroTitleEn": { "type": "string", "maxLength": 250 },
+        "heroTitleAr": { "type": "string", "maxLength": 250 },
+        "heroSubtitleEn": { "type": "string", "maxLength": 600 },
+        "heroSubtitleAr": { "type": "string", "maxLength": 600 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["phone", "email", "addressEn", "addressAr", "updatedAt"]
+    },
+    "CmsNavItem": {
+      "title": "CmsNavItem",
+      "description": "Editable navigation menu item and associated page header.",
+      "type": "object",
+      "properties": {
+        "en": { "type": "string", "maxLength": 80 },
+        "ar": { "type": "string", "maxLength": 80 },
+        "path": { "type": "string", "maxLength": 120 },
+        "order": { "type": "number" },
+        "visible": { "type": "boolean" },
+        "pageTitleEn": { "type": "string", "maxLength": 200 },
+        "pageTitleAr": { "type": "string", "maxLength": 200 },
+        "pageSubtitleEn": { "type": "string", "maxLength": 500 },
+        "pageSubtitleAr": { "type": "string", "maxLength": 500 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["en", "ar", "path", "order", "visible", "updatedAt"]
+    },
+    "CmsService": {
+      "title": "CmsService",
+      "description": "Contracting service division.",
+      "type": "object",
+      "properties": {
+        "number": { "type": "string", "maxLength": 10 },
+        "titleEn": { "type": "string", "maxLength": 160 },
+        "titleAr": { "type": "string", "maxLength": 160 },
+        "shortDescEn": { "type": "string", "maxLength": 500 },
+        "shortDescAr": { "type": "string", "maxLength": 500 },
+        "fullDescEn": { "type": "string", "maxLength": 1500 },
+        "fullDescAr": { "type": "string", "maxLength": 1500 },
+        "highlightsEn": { "type": "array" },
+        "highlightsAr": { "type": "array" },
+        "standardsEn": { "type": "string", "maxLength": 240 },
+        "standardsAr": { "type": "string", "maxLength": 240 },
+        "image": { "type": "string", "maxLength": 500 },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["number", "titleEn", "titleAr", "shortDescEn", "shortDescAr", "image", "order", "updatedAt"]
+    },
+    "CmsProject": {
+      "title": "CmsProject",
+      "description": "Executed or ongoing project case study.",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleAr": { "type": "string", "maxLength": 200 },
+        "clientEn": { "type": "string", "maxLength": 200 },
+        "clientAr": { "type": "string", "maxLength": 200 },
+        "locationEn": { "type": "string", "maxLength": 160 },
+        "locationAr": { "type": "string", "maxLength": 160 },
+        "category": { "type": "string", "enum": ["fencing", "civil", "mechanical", "security", "earthwork"] },
+        "categoryLabelEn": { "type": "string", "maxLength": 80 },
+        "categoryLabelAr": { "type": "string", "maxLength": 80 },
+        "statusEn": { "type": "string", "maxLength": 60 },
+        "statusAr": { "type": "string", "maxLength": 60 },
+        "summaryEn": { "type": "string", "maxLength": 1000 },
+        "summaryAr": { "type": "string", "maxLength": 1000 },
+        "scopeEn": { "type": "array" },
+        "scopeAr": { "type": "array" },
+        "image": { "type": "string", "maxLength": 500 },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "titleAr", "clientEn", "clientAr", "category", "summaryEn", "summaryAr", "image", "order", "updatedAt"]
+    },
+    "CmsGalleryPhoto": {
+      "title": "CmsGalleryPhoto",
+      "description": "Gallery photograph and project showcase item.",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleAr": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "enum": ["fencing", "civil", "mechanical", "security", "earthwork", "asphalt"] },
+        "categoryLabelEn": { "type": "string", "maxLength": 80 },
+        "categoryLabelAr": { "type": "string", "maxLength": 80 },
+        "captionEn": { "type": "string", "maxLength": 500 },
+        "captionAr": { "type": "string", "maxLength": 500 },
+        "src": { "type": "string", "maxLength": 500 },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "titleAr", "category", "src", "order", "updatedAt"]
+    },
+    "CmsCareer": {
+      "title": "CmsCareer",
+      "description": "Career job opportunity listing.",
+      "type": "object",
+      "properties": {
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleAr": { "type": "string", "maxLength": 200 },
+        "departmentEn": { "type": "string", "maxLength": 160 },
+        "departmentAr": { "type": "string", "maxLength": 160 },
+        "locationEn": { "type": "string", "maxLength": 160 },
+        "locationAr": { "type": "string", "maxLength": 160 },
+        "typeEn": { "type": "string", "maxLength": 100 },
+        "typeAr": { "type": "string", "maxLength": 100 },
+        "requirementsEn": { "type": "string", "maxLength": 1000 },
+        "requirementsAr": { "type": "string", "maxLength": 1000 },
+        "isOpen": { "type": "boolean" },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["titleEn", "titleAr", "departmentEn", "departmentAr", "locationEn", "locationAr", "requirementsEn", "requirementsAr", "isOpen", "order", "updatedAt"]
+    },
+    "CmsClient": {
+      "title": "CmsClient",
+      "description": "Client logo & sector partner.",
+      "type": "object",
+      "properties": {
+        "nameEn": { "type": "string", "maxLength": 160 },
+        "nameAr": { "type": "string", "maxLength": 160 },
+        "sector": { "type": "string", "enum": ["energy", "vision2030", "industrial"] },
+        "logo": { "type": "string", "maxLength": 500 },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["nameEn", "nameAr", "sector", "logo", "order", "updatedAt"]
+    },
+    "CmsLegalPage": {
+      "title": "CmsLegalPage",
+      "description": "Legal & policy page document.",
+      "type": "object",
+      "properties": {
+        "slug": { "type": "string", "maxLength": 100 },
+        "titleEn": { "type": "string", "maxLength": 200 },
+        "titleAr": { "type": "string", "maxLength": 200 },
+        "contentEn": { "type": "string", "maxLength": 8000 },
+        "contentAr": { "type": "string", "maxLength": 8000 },
+        "effectiveDate": { "type": "string", "maxLength": 40 },
+        "order": { "type": "number" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["slug", "titleEn", "titleAr", "contentEn", "contentAr", "order", "updatedAt"]
+    },
+    "ContactInquiry": {
+      "title": "ContactInquiry",
+      "description": "RFP / Contact form submission from website visitors.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 120 },
+        "company": { "type": "string", "maxLength": 160 },
+        "email": { "type": "string", "maxLength": 160 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "division": { "type": "string", "maxLength": 100 },
+        "location": { "type": "string", "maxLength": 160 },
+        "message": { "type": "string", "maxLength": 3000 },
+        "status": { "type": "string", "enum": ["new", "replied", "archived"] },
+        "replyNotes": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "phone", "message", "status", "createdAt"]
+    },
+    "CareerApplication": {
+      "title": "CareerApplication",
+      "description": "Candidate job application submission.",
+      "type": "object",
+      "properties": {
+        "role": { "type": "string", "maxLength": 200 },
+        "fullName": { "type": "string", "maxLength": 120 },
+        "email": { "type": "string", "maxLength": 160 },
+        "phone": { "type": "string", "maxLength": 40 },
+        "experience": { "type": "string", "maxLength": 40 },
+        "certification": { "type": "string", "maxLength": 120 },
+        "summary": { "type": "string", "maxLength": 2000 },
+        "status": { "type": "string", "enum": ["new", "replied", "shortlisted", "archived"] },
+        "replyNotes": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["role", "fullName", "email", "phone", "status", "createdAt"]
+    },
+    "EmailTemplate": {
+      "title": "EmailTemplate",
+      "description": "Reusable email reply template for inquiries and candidate responses.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 120 },
+        "category": { "type": "string", "enum": ["inquiry", "career", "general"] },
+        "subjectEn": { "type": "string", "maxLength": 240 },
+        "subjectAr": { "type": "string", "maxLength": 240 },
+        "bodyEn": { "type": "string", "maxLength": 4000 },
+        "bodyAr": { "type": "string", "maxLength": 4000 },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "category", "subjectEn", "bodyEn", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "/admins/{uid}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Admin user allowlist."
+    },
+    "/site_settings/{settingId}": {
+      "schema": { "$ref": "#/entities/SiteSettings" },
+      "description": "Global site settings, contact details, and social media URLs."
+    },
+    "/cms_nav_items/{itemId}": {
+      "schema": { "$ref": "#/entities/CmsNavItem" },
+      "description": "Navigation menu items and menu page metadata."
+    },
+    "/cms_services/{serviceId}": {
+      "schema": { "$ref": "#/entities/CmsService" },
+      "description": "Service divisions managed in CMS."
+    },
+    "/cms_projects/{projectId}": {
+      "schema": { "$ref": "#/entities/CmsProject" },
+      "description": "Portfolio projects managed in CMS."
+    },
+    "/cms_gallery/{photoId}": {
+      "schema": { "$ref": "#/entities/CmsGalleryPhoto" },
+      "description": "Gallery photographs managed in CMS."
+    },
+    "/cms_careers/{jobId}": {
+      "schema": { "$ref": "#/entities/CmsCareer" },
+      "description": "Career opportunities managed in CMS."
+    },
+    "/cms_clients/{clientId}": {
+      "schema": { "$ref": "#/entities/CmsClient" },
+      "description": "Client emblems managed in CMS."
+    },
+    "/cms_legal_pages/{pageId}": {
+      "schema": { "$ref": "#/entities/CmsLegalPage" },
+      "description": "Legal and compliance pages managed in CMS."
+    },
+    "/contact_inquiries/{inquiryId}": {
+      "schema": { "$ref": "#/entities/ContactInquiry" },
+      "description": "Contact / RFP inquiries submitted by visitors."
+    },
+    "/career_applications/{appId}": {
+      "schema": { "$ref": "#/entities/CareerApplication" },
+      "description": "Job applications submitted by candidates."
+    },
+    "/email_templates/{templateId}": {
+      "schema": { "$ref": "#/entities/EmailTemplate" },
+      "description": "Saved email reply templates for admin responses."
+    }
+  }
+}
